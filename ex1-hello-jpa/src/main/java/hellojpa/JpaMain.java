@@ -8,6 +8,11 @@ public class JpaMain {
 
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+        PersistenceContextStudy1.main(emf);
+        emf.close();
+    }
+
+    static void helloJpa(EntityManagerFactory emf) {
         // 트랜잭션 단위 마다 em 을 만들어서 요청하기
         EntityManager em = emf.createEntityManager();
 
@@ -57,6 +62,5 @@ public class JpaMain {
         } finally {
             em.close();
         }
-        emf.close();
     }
 }
