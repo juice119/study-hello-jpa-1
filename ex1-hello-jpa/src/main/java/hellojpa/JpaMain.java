@@ -8,7 +8,7 @@ public class JpaMain {
 
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
-        PersistenceContextStudy1.main(emf);
+//        PersistenceContextStudy1.main(emf);
         emf.close();
     }
 
@@ -32,26 +32,26 @@ public class JpaMain {
             // SELECT
             System.out.println("SELECT ---");
             Member member1 = em.find(Member.class, 1L);
-            System.out.println("member id = 1 name = " + member1.getName());
+            System.out.println("member id = 1 name = " + member1.getUserName());
             System.out.println();
 
             // SELECT BY QUERY
             System.out.println("SELECT BY QUERY ---");
             List<Member> resultList = em.createQuery("SELECT m FROM Member as m", Member.class).getResultList();
             for (Member resultMember : resultList) {
-                System.out.println("SELECT BY QUERY  MEMBER id = " + resultMember.getId() + ", name = " + resultMember.getName());
+                System.out.println("SELECT BY QUERY  MEMBER id = " + resultMember.getId() + ", name = " + resultMember.getUserName());
             }
             System.out.println();
 
             // UPDATE
             System.out.println("UPDATE ---");
             Member beforeMember = em.find(Member.class, 1L);
-            System.out.println("before hellojpa.Member Name: " + beforeMember.getName());
+            System.out.println("before hellojpa.Member Name: " + beforeMember.getUserName());
 
             String updateName = "hello spring";
-            beforeMember.setName(updateName);
+            beforeMember.setUserName(updateName);
             Member updatedMember = em.find(Member.class, 1L);
-            System.out.println("updated hellojpa.Member Name: " + updatedMember.getName());
+            System.out.println("updated hellojpa.Member Name: " + updatedMember.getUserName());
 
             // DELETE
             //em.remove(em.find(Member.class, 1L));
