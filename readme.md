@@ -4,6 +4,7 @@ JPA 기초 공부용 레포지토리
 
 ## 날짜 기록
 - 2022년 3월 23일
+- 2022년 10월 26일
 
 ## 참고 링크
 [ORM-JPA-Basic](https://www.inflearn.com/course/ORM-JPA-Basic)
